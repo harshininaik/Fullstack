@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Exercise System - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Smart Exercise System</h1>
+        <form action="/login" method="post" class="form-box">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="button-group">
+                <button type="submit">Login</button>
+                <button type="button" onclick="location.href='register.html'">Register</button>
+                <button type="reset">Reset</button>
+            </div>
+            <p class="note">* Do not forget your password!</p>
+        </form>
+    </div>
+</body>
+
+</html>
