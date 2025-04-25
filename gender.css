@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1579126038374-6064e9370f0f');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.msg {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+#diet-button-container {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.diet-button {
+    padding: 12px 24px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    min-width: 200px;
+}
+
+/* Update the diet button styles */
+.diet-button.teen {
+    color: #27ae60;
+    border-color: #27ae60;
+}
+
+.diet-button.adult {
+    color: #0066cc;
+    border-color: #000;
+}
+
+.diet-button.senior {
+    color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+.diet-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Error message styling */
+.msg[style*="red"] {
+    background-color: #fff5f5;
+    border: 1px solid #ff8a8a;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .overlay {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

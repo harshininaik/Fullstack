@@ -2,32 +2,95 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Gender & Age Selection</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gender.css" />
 </head>
 
 <body>
-    <div class="container">
-        <h2>Select Gender & Age</h2>
-        <form action="/submit-details" method="post" class="form-box">
+    <div class="overlay">
+        <div class="container">
+            <h2>Gender & Age Selection</h2>
 
-            <label for="gender">Gender:</label>
-            <select name="gender" id="gender" required>
-                <option value="">-- Select Gender --</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="5" max="100" required>
-
-            <div class="button-group">
-                <button type="submit">Submit</button>
-                <button type="button" onclick="location.href='login.html'">Back</button>
+            <div class="form-group">
+                <label for="gender">Select Gender:</label>
+                <select id="gender">
+                    <option value="">--Choose--</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
             </div>
-        </form>
+
+            <div class="form-group">
+                <label for="age">Select Your Age:</label>
+                <select id="age" onchange="handleAgeChange()">
+                    <option value="">--Select Age--</option>
+                </select>
+            </div>
+
+            <p id="category-msg" class="msg"></p>
+            <div id="diet-button-container"></div>
+        </div>
     </div>
+
+    <script>
+        // Populate age dropdown from 18 to 60
+        window.onload = function () {
+            const ageSelect = document.getElementById('age');
+            for (let i = 18; i <= 60; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                ageSelect.appendChild(option);
+            }
+        };
+
+        // Handle age change and show appropriate button
+        function handleAgeChange() {
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const messageElement = document.getElementById('category-msg');
+            const buttonContainer = document.getElementById('diet-button-container');
+
+            // Clear previous content
+            buttonContainer.innerHTML = '';
+
+            if (!age || !gender) {
+                messageElement.textContent = 'Please select both gender and age';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            messageElement.style.color = '#333';
+            let category, buttonText, pageUrl;
+
+            if (age >= 18 && age <= 25) {
+                category = 'teen';
+                buttonText = 'Teen Diet Plan';
+                pageUrl = 'teen_dietplan.html';
+            } else if (age >= 26 && age <= 35) {
+                category = 'adult';
+                buttonText = 'Adult Diet Plan';
+                pageUrl = 'adult_dietplan.html';
+            } else {
+                category = 'senior';
+                buttonText = 'Senior Diet Plan';
+                pageUrl = 'senior_dietplan.html';
+            }
+
+            messageElement.textContent = `Category: ${category.toUpperCase()} (${gender})`;
+
+            // Create and add the button
+            const button = document.createElement('button');
+            button.textContent = buttonText;
+            button.className = `diet-button ${category}`;
+            button.onclick = () => {
+                window.location.href = `${pageUrl}?gender=${gender}&age=${age}`;
+            };
+            buttonContainer.appendChild(button);
+        }
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logout Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logout-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .logout-container h2 {
+            margin-bottom: 0.5rem;
+            color: #4caf50;
+        }
+
+        .logout-container p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .message-box {
+            font-style: italic;
+            background-color: #e0f7fa;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #b2ebf2;
+        }
+
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logout-container">
+        <h2>Reached the Target!!</h2>
+        <p>Good to go for the day!!</p>
+        <div class="message-box">Have a nice day!!</div>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+
+    <script>
+        function handleLogout() {
+            // Simulate logout logic
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+
+</html>
