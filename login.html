@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Smart Exercise System</h1>
-        <form action="/login" method="post" class="form-box">
+        <form onsubmit="handleLogin(event)" class="form-box">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -25,6 +25,20 @@
             <p class="note">* Do not forget your password!</p>
         </form>
     </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                window.location.href = 'gender_age.html';
+            } else {
+                alert('Please enter both username and password');
+            }
+        }
+    </script>
 </body>
 
 </html>
