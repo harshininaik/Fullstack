@@ -1,0 +1,49 @@
+<!-- workout_selection.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teen Workout Plan</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function startWorkout(exercise) {
+            const countdownDiv = document.getElementById('countdown');
+            let counter = 3;
+            countdownDiv.innerText = `Starting ${exercise} in ${counter}...`;
+            countdownDiv.style.display = 'block';
+
+            const interval = setInterval(() => {
+                counter--;
+                if (counter === 0) {
+                    clearInterval(interval);
+                    // Redirect to Python backend (to be created)
+                    window.location.href = `${exercise.toLowerCase().replace(/\s+/g, '_')}.html`;
+                } else {
+                    countdownDiv.innerText = `Starting ${exercise} in ${counter}...`;
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Teen Workout Plan</h2>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="startWorkout('Jumping Jacks')">Jumping Jacks</a></li>
+            <li>Push-ups</li>
+            <li>Bodyweight Squats</li>
+            <li>Jogging or Running</li>
+            <li>Plank Hold</li>
+            <li>Bicycle Crunches</li>
+            <li>Sports (Football/Basketball/Swimming)</li>
+            <li>Stretching & Mobility Drills</li>
+        </ul>
+        <div id="countdown" style="display:none; font-size: 24px; color: red; margin-top: 20px;"></div>
+    </div>
+</body>
+
+</html>
